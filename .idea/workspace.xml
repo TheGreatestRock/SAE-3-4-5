@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2430086b-ef96-4cff-83cd-45c143d4d7ba" name="Changes" comment="" />
+    <list default="true" id="2430086b-ef96-4cff-83cd-45c143d4d7ba" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/182e1583-31ed-41dd-bfe0-5653cdff4b46.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/182e1583-31ed-41dd-bfe0-5653cdff4b46.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sae_sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sae_sql.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +20,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2KoDtKeV0IGwg1n2gErxq2FjK2H" />
   <component name="ProjectViewState">
@@ -68,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674632255426</updated>
-      <workItem from="1674632256712" duration="1634000" />
+      <workItem from="1674632256712" duration="3284000" />
     </task>
     <servers />
   </component>
