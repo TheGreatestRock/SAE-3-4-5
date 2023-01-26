@@ -65,6 +65,7 @@ CREATE TABLE ETAT(
 CREATE TABLE CHAUSSURE(
    num_CHAUSSURE INT NOT NULL AUTO_INCREMENT,
    Nom_chaussure VARCHAR(50),
+   Description_chaussure VARCHAR(500),
    prix_chaussure DECIMAL(15,2),
    Stock_chaussure INT(10),
    image_chaussure VARCHAR(50),
@@ -200,9 +201,10 @@ INSERT INTO MARQUE(Id_MARQUE, Libelle_marque) VALUES
 SELECT * FROM MARQUE;
 
 
-INSERT INTO CHAUSSURE(num_CHAUSSURE, Nom_chaussure, prix_chaussure, Stock_chaussure, image_chaussure, CodeCOULEUR, IdTYPE_CHAUSSURE, CodePOINTURE, IdMARQUE, IdFOURNISSEUR) VALUES
-(NULL, 'Baskets basse en cuir', 100.00, 10, NULL, 2, 1, 3, 2, 2),
-(NULL, 'Converses', 120.00, 10, NULL, 1, 1, 3, 3, 6);
+INSERT INTO CHAUSSURE(num_CHAUSSURE, Nom_chaussure, Description_chaussure, prix_chaussure, Stock_chaussure, image_chaussure, CodeCOULEUR, IdTYPE_CHAUSSURE, CodePOINTURE, IdMARQUE, IdFOURNISSEUR) VALUES
+(NULL, 'Baskets basse en cuir', 'Des baskets basses en cuir agréable à porter. Elles sont uniquement en blanc et en noir.', 100.00, 10, NULL, 2, 1, 3, 2, 2),
+(NULL, 'Converses', 'Des chaussures montantes agréable à porter. Existant avec plusieurs couleurs.', 120.00, 10, NULL, 1, 1, 3, 3, 6),
+(NULL, 'Mocassins en cuir', 'Des mocassins en cuir de veau. Ces mocassins se distinguent de ses deux couleurs', 300.00, 10, NULL, 1, 4, 10, 4, 4);
 
 SELECT * FROM CHAUSSURE;
 
