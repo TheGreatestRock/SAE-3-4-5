@@ -176,5 +176,15 @@ SELECT * FROM TYPE_CHAUSSURE;
 
 INSERT INTO COULEUR(Code_COULEUR, libelle_couleur) VALUES
 (NULL, 'Noir'),
+(NULL, 'Blanc'),
+(NULL, 'Gris'),
 (NULL, 'Brun'),
-(NULL, '')
+(NULL, 'Marron'),
+(NULL, 'Rouge'),
+(NULL, 'Bleu'),
+(NULL, 'Vert'),
+(NULL, 'Rose'),
+(NULL, 'Violet'),
+(NULL, 'Jaune');
+
+SELECT * FROM COULEUR;

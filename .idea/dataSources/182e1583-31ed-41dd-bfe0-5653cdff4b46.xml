@@ -1390,7 +1390,7 @@
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="387" parent="336" name="Code_COULEUR">
-      <AutoIncrement>4</AutoIncrement>
+      <AutoIncrement>12</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
