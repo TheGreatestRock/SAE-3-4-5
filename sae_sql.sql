@@ -45,11 +45,11 @@ CREATE TABLE MARQUE(
 
 CREATE TABLE utilisateur(
    Id_utilisateur INT NOT NULL AUTO_INCREMENT,
-   nom_utilisateur VARCHAR(50),
-   login_utilisateur VARCHAR(50),
+   nom VARCHAR(50),
+   login VARCHAR(50),
    email_utilisateur VARCHAR(50),
-   password_utilisateur VARCHAR(50),
-   role_utilisateur VARCHAR(50),
+   password VARCHAR(50),
+   role VARCHAR(50),
    PRIMARY KEY(Id_utilisateur)
 );
 
@@ -189,3 +189,7 @@ INSERT INTO COULEUR(Code_COULEUR, libelle_couleur) VALUES
 
 SELECT * FROM COULEUR;
 
+INSERT INTO MARQUE(Id_MARQUE, Libelle_marque) VALUES
+(NULL, 'Flexifeet'),
+(NULL, 'Neukeuh'),
+(NULL, 'Ervon');
