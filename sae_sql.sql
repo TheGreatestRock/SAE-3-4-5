@@ -54,6 +54,7 @@ CREATE TABLE utilisateur(
 );
 
 
+
 CREATE TABLE ETAT(
    Id_ETAT INT NOT NULL AUTO_INCREMENT,
    libelle_etat VARCHAR(50),
