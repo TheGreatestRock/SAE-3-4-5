@@ -2,7 +2,6 @@ DROP TABLE IF EXISTS ligne_panier;
 DROP TABLE IF EXISTS ligne_commande;
 DROP TABLE IF EXISTS COMMANDE;
 DROP TABLE IF EXISTS CHAUSSURE;
-DROP TABLE IF EXISTS STOCK;
 DROP TABLE IF EXISTS ETAT;
 DROP TABLE IF EXISTS utilisateur;
 DROP TABLE IF EXISTS MARQUE;
@@ -44,13 +43,14 @@ CREATE TABLE MARQUE(
 );
 
 CREATE TABLE utilisateur(
-   Id_utilisateur INT NOT NULL AUTO_INCREMENT,
-   nom VARCHAR(50),
-   login VARCHAR(50),
-   email VARCHAR(50),
-   password VARCHAR(50),
-   role VARCHAR(50),
-   PRIMARY KEY(Id_utilisateur)
+   id_utilisateur INT NOT NULL AUTO_INCREMENT,
+   login VARCHAR(255),
+   email VARCHAR(255),
+   password VARCHAR(255),
+   role VARCHAR(255),
+   nom VARCHAR(255),
+   est_actif INT,
+   PRIMARY KEY(id_utilisateur)
 );
 
 
@@ -61,17 +61,12 @@ CREATE TABLE ETAT(
 );
 
 
-CREATE TABLE STOCK(
-   Id_Stock VARCHAR(50),
-   Stock_restant VARCHAR(50),
-   PRIMARY KEY(Id_Stock)
-);
-
 CREATE TABLE CHAUSSURE(
    num_CHAUSSURE INT NOT NULL AUTO_INCREMENT,
    Nom_chaussure VARCHAR(50),
    prix_chaussure DECIMAL(15,2),
-   Description_chaussure VARCHAR(50),
+   Stock_chaussure INT(10),
+   image_chaussure VARCHAR(50),
    CodeCOULEUR INT(11),
    IdTYPE_CHAUSSURE INT(11),
    CodePOINTURE INT(11),
@@ -92,7 +87,7 @@ CREATE TABLE COMMANDE(
    IdUTILISATEUR INT(11),
    PRIMARY KEY(Id_COMMANDE),
    CONSTRAINT fk_commande_etat FOREIGN KEY(IdETAT) REFERENCES ETAT(Id_ETAT),
-   CONSTRAINT fk_commande_utilisateur FOREIGN KEY(IdUTILISATEUR) REFERENCES UTILISATEUR(Id_UTILISATEUR)
+   CONSTRAINT fk_commande_utilisateur FOREIGN KEY(IdUTILISATEUR) REFERENCES utilisateur(id_utilisateur)
 );
 
 
@@ -195,4 +190,18 @@ INSERT INTO MARQUE(Id_MARQUE, Libelle_marque) VALUES
 (NULL, 'Ervon'),
 (NULL, 'EcoMocs'),
 (NULL, 'SilverQueek'),
-(NULL, '')
+(NULL, 'Mapu'),
+(NULL, 'Rasrivie'),
+(NULL, 'StachMou'),
+(NULL, 'Ristama'),
+(NULL, 'Schoubba');
+
+SELECT * FROM MARQUE;
+
+
+INSERT INTO CHAUSSURE(num_CHAUSSURE, Nom_chaussure, prix_chaussure, Stock_chaussure, image_chaussure, CodeCOULEUR, IdTYPE_CHAUSSURE, CodePOINTURE, IdMARQUE, IdFOURNISSEUR) VALUES
+(NULL, 'Baskets basse en cuir', 100.00, 10, NULL, 2, 1, 3, 2, 2),
+(NULL, 'Converses', 120.00, 10, NULL, 1, 1, 3, 3, 6);
+
+SELECT * FROM CHAUSSURE;
+
