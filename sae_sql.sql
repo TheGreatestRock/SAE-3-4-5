@@ -5,7 +5,6 @@ DROP TABLE IF EXISTS CHAUSSURE;
 DROP TABLE IF EXISTS ETAT;
 DROP TABLE IF EXISTS utilisateur;
 DROP TABLE IF EXISTS MARQUE;
-DROP TABLE IF EXISTS COULEUR;
 DROP TABLE IF EXISTS FOURNISSEUR;
 DROP TABLE IF EXISTS TYPE_CHAUSSURE;
 DROP TABLE IF EXISTS POINTURE;
@@ -28,12 +27,6 @@ CREATE TABLE FOURNISSEUR(
    Nom_fournisseur VARCHAR(50),
    Num_tel_fournisseur VARCHAR(50),
    PRIMARY KEY(Id_FOURNISSEUR)
-);
-
-CREATE TABLE COULEUR(
-   Code_COULEUR INT NOT NULL AUTO_INCREMENT,
-   libelle_couleur VARCHAR(50),
-   PRIMARY KEY(Code_COULEUR)
 );
 
 CREATE TABLE MARQUE(
@@ -69,13 +62,11 @@ CREATE TABLE CHAUSSURE(
    prix_chaussure DECIMAL(15,2),
    Stock_chaussure INT(10),
    image_chaussure VARCHAR(50),
-   CodeCOULEUR INT(11),
    IdTYPE_CHAUSSURE INT(11),
    CodePOINTURE INT(11),
    IdMARQUE INT(11),
    IdFOURNISSEUR INT(11),
    PRIMARY KEY(num_CHAUSSURE),
-   CONSTRAINT fk_chaussure_couleur FOREIGN KEY(CodeCOULEUR) REFERENCES COULEUR(Code_COULEUR),
    CONSTRAINT fk_chaussure_type_chaussure FOREIGN KEY(IdTYPE_CHAUSSURE) REFERENCES TYPE_CHAUSSURE(Id_TYPE_CHAUSSURE),
    CONSTRAINT fk_chaussure_pointure FOREIGN KEY(CodePOINTURE) REFERENCES POINTURE(Code_POINTURE),
    CONSTRAINT fk_chaussure_marque FOREIGN KEY(IdMARQUE) REFERENCES MARQUE(Id_MARQUE),
@@ -116,7 +107,6 @@ CREATE TABLE ligne_panier(
 
 DESCRIBE CHAUSSURE;
 DESCRIBE MARQUE;
-DESCRIBE COULEUR;
 DESCRIBE FOURNISSEUR;
 DESCRIBE TYPE_CHAUSSURE;
 DESCRIBE POINTURE;
@@ -125,7 +115,6 @@ DESCRIBE ligne_commande;
 DESCRIBE COMMANDE;
 DESCRIBE ETAT;
 DESCRIBE utilisateur;
-DESCRIBE STOCK;
 
 INSERT INTO POINTURE(Code_POINTURE, libelle_pointure) VALUES
 (NULL, '36'),
@@ -165,26 +154,10 @@ INSERT INTO TYPE_CHAUSSURE(Id_TYPE_CHAUSSURE, libelle_type_chaussure) VALUES
 (NULL, 'ESPADRILLES'),
 (NULL, 'SANDALES'),
 (NULL, 'TONGS'),
-(NULL, 'BABOUCHES'),
-(NULL, 'ESCARPINS');
+(NULL, 'BABOUCHES');
 
 SELECT * FROM TYPE_CHAUSSURE;
 
-
-INSERT INTO COULEUR(Code_COULEUR, libelle_couleur) VALUES
-(NULL, 'Noir'),
-(NULL, 'Blanc'),
-(NULL, 'Gris'),
-(NULL, 'Brun'),
-(NULL, 'Marron'),
-(NULL, 'Rouge'),
-(NULL, 'Bleu'),
-(NULL, 'Vert'),
-(NULL, 'Rose'),
-(NULL, 'Violet'),
-(NULL, 'Jaune');
-
-SELECT * FROM COULEUR;
 
 INSERT INTO MARQUE(Id_MARQUE, Libelle_marque) VALUES
 (NULL, 'Flexifeet'),
@@ -201,10 +174,25 @@ INSERT INTO MARQUE(Id_MARQUE, Libelle_marque) VALUES
 SELECT * FROM MARQUE;
 
 
-INSERT INTO CHAUSSURE(num_CHAUSSURE, Nom_chaussure, Description_chaussure, prix_chaussure, Stock_chaussure, image_chaussure, CodeCOULEUR, IdTYPE_CHAUSSURE, CodePOINTURE, IdMARQUE, IdFOURNISSEUR) VALUES
-(NULL, 'Baskets basse en cuir', 'Des baskets basses en cuir agréable à porter. Elles sont uniquement en blanc et en noir.', 100.00, 10, NULL, 2, 1, 3, 2, 2),
-(NULL, 'Converses', 'Des chaussures montantes agréable à porter. Existant avec plusieurs couleurs.', 120.00, 10, NULL, 1, 1, 3, 3, 6),
-(NULL, 'Mocassins en cuir', 'Des mocassins en cuir de veau. Ces mocassins se distinguent de ses deux couleurs', 300.00, 10, NULL, 1, 4, 10, 4, 4);
+INSERT INTO CHAUSSURE(num_CHAUSSURE, Nom_chaussure, Description_chaussure, prix_chaussure, Stock_chaussure, image_chaussure, IdTYPE_CHAUSSURE, CodePOINTURE, IdMARQUE, IdFOURNISSEUR) VALUES
+(NULL, 'Baskets basse en cuir', 'Des baskets basses en cuir agréable à porter.', 100.00, 10, 'basket_basse.jpg', 1, 3, 2, 2),
+(NULL, 'Converses', 'Des chaussures montantes agréable à porter.', 120.00, 10, 'converses.jpeg', 1, 3, 3, 6),
+(NULL, 'Mocassins en cuir', 'Des mocassins en cuir de veau.', 300.00, 10, 'mocassins_cuir.jpg', 4, 10, 4, 4),
+(NULL, 'Claquettes', 'Des sandales en caoutchouc parfait pour aller à la plage', 80.00, 10, 'claquettes.jpeg', 7, 3, 6, 5),
+(NULL, 'Mules étroites', 'Des sandales qui adaptant vos pieds, parfait pour la plage en été', 75.00, 10, 'mules.jpeg', 7, 5, 1, 3),
+(NULL, 'Tongs industriel', 'Des tongs style chantier parfait pour avoir du flow.', 120.00, 10, 'tongs_industriel.jpg', 8, 5, 2, 2),
+(NULL, 'Crocs cars', 'Vous voulez être rapide ? Ces sandales en partenriat avec le film Cars de Disney sont parfaites pour vous.', 67.00, 10, 'crocs_cars.jpeg', 7, 1, 5, 3),
+(NULL, 'Espadrilles en tissus', 'Des chaussons pas chaussons en tissus et pour aller dans votre jardin ', 50.00, 10, 'espadrilles_tissus.jpeg', 6, 5, 7, 5),
+(NULL, 'Espadrilles en cuir', 'Espadrilles confortable en peau de vache', 80.00, 10, 'espadrilles_cuir.jpeg', 6, 4, 7, 3),
+(NULL, 'Bottines léopard', 'Ayez un flow et un charisme incroyable avec ces chaussures', 170.00, 10, 'bottines_leopard.jpeg', 3, 7, 8, 4),
+(NULL, 'Bottines Schellsie ', 'Des bottines en cuir classique agréable pour vos pieds.', 400.00, 10, 'bottines_Schellsie.jpeg', 3, 9, 8, 1),
+(NULL, 'Bottes de pluie', 'Des bottes en caoutchouc à hauteur mollet. Vos pieds seront invincible contre la pluie. ', 160.00, 10, 'bottes_pluie.jpg', 2, 6, 9, 1),
+(NULL, 'Bottes Rex', 'Bottes asiatique en cuir de chien. Du grand luxe !.', 180.00, 10, 'bottes_Rex.jpg', 2, 3, 3, 4),
+(NULL, 'Mocassins mariage', 'Des mocassins style chêne à porter pour vos mariages', 60.00, 10, 'mocassins_mariage.jpeg', 4, 3, 10, 5),
+(NULL, 'Derbies crunky', 'Des chaussures en cuir à grosses semelles.', 200.00, 10, 'derbies_crunky.jpg', 5, 7, 8, 1),
+(NULL, 'Derbies en cuir', 'Ces derbies en cuir seront jolies à vos pieds.', 880.00, 10,  'derbies_cuir.jpg', 5, 5, 7, 4),
+(NULL, 'Babouches laineuses', 'Ces babouches tiendrons vos pieds bien au chaud.', 50.00, 10, 'babouche_laine.jpeg', 9, 7, 10, 2),
+(NULL, 'Babouches simples', 'Ces babouches en cuir sont agréables à porter.', 80.00, 10, 'babouche_simple.jpeg', 9, 9, 10, 6);
 
 SELECT * FROM CHAUSSURE;
 

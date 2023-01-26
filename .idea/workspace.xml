@@ -9,6 +9,35 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sae_sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sae_sql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/armoire.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/arrosoir1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/arrosoir2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/boite.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/boite_blanche.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/boite_bleu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/boite_noir.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/boite_verte.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/boites.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/chaise.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/lotTourneVis.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/marteau.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/papermate_bleu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/papermate_noir.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/papermate_rouge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/papermate_stylo_feutre.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/papermate_vert.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/perceuse.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/pinceMultiprise.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/salonJardin2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/setTableChaises.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/stylo.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/stylo_bic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/stylo_bleu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/stylo_noir.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/stylo_rouge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/stylo_vert.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/table.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/tableFauteuilsJardin1.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +118,8 @@
       <workItem from="1674720984504" duration="2403000" />
       <workItem from="1674723969945" duration="2517000" />
       <workItem from="1674729183756" duration="57000" />
-      <workItem from="1674729805839" duration="287000" />
+      <workItem from="1674729805839" duration="383000" />
+      <workItem from="1674741012601" duration="3047000" />
     </task>
     <servers />
   </component>
