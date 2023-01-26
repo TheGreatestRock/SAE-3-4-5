@@ -47,7 +47,7 @@ CREATE TABLE utilisateur(
    Id_utilisateur INT NOT NULL AUTO_INCREMENT,
    nom VARCHAR(50),
    login VARCHAR(50),
-   email_utilisateur VARCHAR(50),
+   email VARCHAR(50),
    password VARCHAR(50),
    role VARCHAR(50),
    PRIMARY KEY(Id_utilisateur)
@@ -192,4 +192,7 @@ SELECT * FROM COULEUR;
 INSERT INTO MARQUE(Id_MARQUE, Libelle_marque) VALUES
 (NULL, 'Flexifeet'),
 (NULL, 'Neukeuh'),
-(NULL, 'Ervon');
+(NULL, 'Ervon'),
+(NULL, 'EcoMocs'),
+(NULL, 'SilverQueek'),
+(NULL, '')

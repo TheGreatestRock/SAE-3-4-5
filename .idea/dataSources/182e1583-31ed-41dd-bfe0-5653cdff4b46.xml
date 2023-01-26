@@ -1454,7 +1454,7 @@
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="400" parent="339" name="Id_MARQUE">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>4</AutoIncrement>
       <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1806,11 +1806,11 @@ Idutilisateur</ColNames>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="474" parent="351" name="nom_utilisateur">
+    <column id="474" parent="351" name="nom">
       <DasType>varchar(50)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="475" parent="351" name="login_utilisateur">
+    <column id="475" parent="351" name="login">
       <DasType>varchar(50)|0s</DasType>
       <Position>3</Position>
     </column>
@@ -1818,11 +1818,11 @@ Idutilisateur</ColNames>
       <DasType>varchar(50)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="477" parent="351" name="password_utilisateur">
+    <column id="477" parent="351" name="password">
       <DasType>varchar(50)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="478" parent="351" name="role_utilisateur">
+    <column id="478" parent="351" name="role">
       <DasType>varchar(50)|0s</DasType>
       <Position>6</Position>
     </column>
