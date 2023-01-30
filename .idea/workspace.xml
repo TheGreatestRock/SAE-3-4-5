@@ -7,37 +7,17 @@
     <list default="true" id="2430086b-ef96-4cff-83cd-45c143d4d7ba" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/182e1583-31ed-41dd-bfe0-5653cdff4b46.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/182e1583-31ed-41dd-bfe0-5653cdff4b46/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/182e1583-31ed-41dd-bfe0-5653cdff4b46/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/182e1583-31ed-41dd-bfe0-5653cdff4b46/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab098c7e-7309-4e65-b5af-c14c1dcbdb3b.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab098c7e-7309-4e65-b5af-c14c1dcbdb3b/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab098c7e-7309-4e65-b5af-c14c1dcbdb3b/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab098c7e-7309-4e65-b5af-c14c1dcbdb3b/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3ab7165-fb28-4e59-bb38-8ef6fbd3dbd1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d3ab7165-fb28-4e59-bb38-8ef6fbd3dbd1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sae_sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sae_sql.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/armoire.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/arrosoir1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/arrosoir2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/boite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/boite_blanche.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/boite_bleu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/boite_noir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/boite_verte.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/boites.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/chaise.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/lotTourneVis.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/marteau.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/papermate_bleu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/papermate_noir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/papermate_rouge.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/papermate_stylo_feutre.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/papermate_vert.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/perceuse.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/pinceMultiprise.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/salonJardin2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/setTableChaises.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/stylo.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/stylo_bic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/stylo_bleu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/stylo_noir.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/stylo_rouge.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/stylo_vert.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/table.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/tableFauteuilsJardin1.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,25 +42,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/luluexe/Documents/GitHub/SAE-3-4-5&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/luluexe/Documents/GitHub/SAE-3-4-5",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "redshift",
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="SAE-3-4-5" type="PythonConfigurationType" factoryName="Python">
       <module name="SAE-3-4-5" />
@@ -119,7 +100,8 @@
       <workItem from="1674723969945" duration="2517000" />
       <workItem from="1674729183756" duration="57000" />
       <workItem from="1674729805839" duration="383000" />
-      <workItem from="1674741012601" duration="3047000" />
+      <workItem from="1674741012601" duration="3628000" />
+      <workItem from="1675066415248" duration="484000" />
     </task>
     <servers />
   </component>
