@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2430086b-ef96-4cff-83cd-45c143d4d7ba" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/182e1583-31ed-41dd-bfe0-5653cdff4b46.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/182e1583-31ed-41dd-bfe0-5653cdff4b46/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
@@ -16,7 +17,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab098c7e-7309-4e65-b5af-c14c1dcbdb3b/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ab098c7e-7309-4e65-b5af-c14c1dcbdb3b/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3ab7165-fb28-4e59-bb38-8ef6fbd3dbd1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d3ab7165-fb28-4e59-bb38-8ef6fbd3dbd1.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d3ab7165-fb28-4e59-bb38-8ef6fbd3dbd1.xml" beforeDir="false" />
+>>>>>>> 76174bf4eefd88d4a6711fa8ffc3ee653b450eae
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/client_article.py" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/client_article.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sae_sql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sae_sql.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,8 +105,13 @@
       <workItem from="1674723969945" duration="2517000" />
       <workItem from="1674729183756" duration="57000" />
       <workItem from="1674729805839" duration="383000" />
+<<<<<<< HEAD
       <workItem from="1674741012601" duration="3628000" />
       <workItem from="1675066415248" duration="484000" />
+=======
+      <workItem from="1674741012601" duration="3047000" />
+      <workItem from="1674922254161" duration="2427000" />
+>>>>>>> 76174bf4eefd88d4a6711fa8ffc3ee653b450eae
     </task>
     <servers />
   </component>

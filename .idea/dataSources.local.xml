@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="dataSourceStorageLocal" created-in="PY-223.8617.48">
     <data-source name="BDD_lfulcran@localhost" uuid="6f1d85da-b747-492e-8b27-a6562e34eab8">
+=======
+  <component name="dataSourceStorageLocal" created-in="PY-222.4167.33">
+    <data-source name="BDD_lfulcran@localhost" uuid="d3ab7165-fb28-4e59-bb38-8ef6fbd3dbd1">
+>>>>>>> 76174bf4eefd88d4a6711fa8ffc3ee653b450eae
       <database-info product="MariaDB" version="10.6.11-MariaDB-0ubuntu0.22.04.1" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="10.6.11" exact-driver-version="3.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
