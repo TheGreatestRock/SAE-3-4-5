@@ -185,7 +185,7 @@ INSERT INTO chaussure(num_chaussure, nom_chaussure, description_chaussure, prix_
 (NULL, 'Espadrilles en tissus', 'des chaussons pas chaussons en tissus et pour aller dans votre jardin ', 50.00, 10, 'espadrilles_tissus.jpeg', 6, 5, 7, 5),
 (NULL, 'Espadrilles en cuir', 'espadrilles confortable en peau de vache', 80.00, 10, 'espadrilles_cuir.jpeg', 6, 4, 7, 3),
 (NULL, 'Bottines léopard', 'ayez un flow et un charisme incroyable avec ces chaussures', 170.00, 10, 'bottines_leopard.jpeg', 3, 7, 8, 4),
-(NULL, 'Bottines schellsie ', 'des bottines en cuir classique agréable pour vos pieds.', 400.00, 10, 'bottines_schellsie.jpeg', 3, 9, 8, 1),
+(NULL, 'Bottines schellsie ', 'des bottines en cuir classique agréable pour vos pieds.', 400.00, 10, 'bottines_Schellsie.jpeg', 3, 9, 8, 1),
 (NULL, 'Bottes de pluie', 'des bottes en caoutchouc à hauteur mollet. vos pieds seront invincible contre la pluie. ', 160.00, 10, 'bottes_pluie.jpg', 2, 6, 9, 1),
 (NULL, 'Bottes rex', 'bottes asiatique en cuir de chien. du grand luxe !.', 180.00, 10, 'bottes_rex.jpg', 2, 3, 3, 4),
 (NULL, 'Mocassins mariage', 'des mocassins style chêne à porter pour vos mariages', 60.00, 10, 'mocassins_mariage.jpeg', 4, 3, 10, 5),
@@ -195,3 +195,17 @@ INSERT INTO chaussure(num_chaussure, nom_chaussure, description_chaussure, prix_
 (NULL, 'Babouches simples', 'ces babouches en cuir sont agréables à porter.', 80.00, 10, 'babouche_simple.jpeg', 9, 9, 10, 6);
 
 SELECT * FROM chaussure;
+
+
+
+
+INSERT INTO utilisateur(login,email,password,role,nom,est_actif) VALUES
+('admin','admin@admin.fr',
+    'sha256$dPL3oH9ug1wjJqva$2b341da75a4257607c841eb0dbbacb76e780f4015f0499bb1a164de2a893fdbf',
+    'ROLE_admin','admin','1'),
+('client','client@client.fr',
+    'sha256$1GAmexw1DkXqlTKK$31d359e9adeea1154f24491edaa55000ee248f290b49b7420ced542c1bf4cf7d',
+    'ROLE_client','client','1'),
+('client2','client2@client2.fr',
+    'sha256$MjhdGuDELhI82lKY$2161be4a68a9f236a27781a7f981a531d11fdc50e4112d912a7754de2dfa0422',
+    'ROLE_client','client2','1');

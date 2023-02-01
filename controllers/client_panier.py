@@ -20,21 +20,21 @@ def client_panier_add():
     id_declinaison_article = 1
 
 # ajout dans le panier d'une déclinaison d'un article (si 1 declinaison : immédiat sinon => vu pour faire un choix
-    # sql = '''    '''
-    # mycursor.execute(sql, (id_article))
-    # declinaisons = mycursor.fetchall()
-    # if len(declinaisons) == 1:
-    #     id_declinaison_article = declinaisons[0]['id_declinaison_article']
-    # elif len(declinaisons) == 0:
-    #     abort("pb nb de declinaison")
-    # else:
-    #     sql = '''   '''
-    #     mycursor.execute(sql, (id_article))
-    #     article = mycursor.fetchone()
-    #     return render_template('client/boutique/declinaison_article.html'
-    #                                , declinaisons=declinaisons
-    #                                , quantite=quantite
-    #                                , article=article)
+    sql = ''' INSERT INTO ligne_panier (idutilisateur, numchaussure, quantite) VALUES (%s, %s, %s) '''
+    mycursor.execute(sql, (id_client, id_article, quantite))
+    declinaisons = mycursor.fetchall()
+    if len(declinaisons) == 1:
+        id_declinaison_article = declinaisons[0]['id_declinaison_article']
+    elif len(declinaisons) == 0:
+        abort("pb nb de declinaison")
+    else:
+        sql = ''' SELECT * FROM article WHERE id_article = %s   '''
+        mycursor.execute(sql, (id_article))
+        article = mycursor.fetchone()
+        return render_template('client/boutique/declinaison_article.html'
+                                   , declinaisons=declinaisons
+                                   , quantite=quantite
+                                   , article=article)
 
 # ajout dans le panier d'un article
 
@@ -67,8 +67,9 @@ def client_panier_delete():
         sql = ''' UPDATE ligne_panier SET quantite + %s WHERE idutilisateur = %s AND numchaussure = %s '''
         mycursor.execute(sql, tuple_update)
     else:
-        tuple_insert = (id_client, quantite, id_article)
+        tuple_insert = (id_client, quantite, article)
         sql = ''' INSERT INTO ligne_panier (idutilisateur, numchaussure, quantite) VALUES (%s, %s, %s) '''
+        mycursor.execute(sql, tuple_insert)
 
 
     # mise à jour du stock de l'article disponible
