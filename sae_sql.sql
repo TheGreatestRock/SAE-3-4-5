@@ -187,7 +187,7 @@ INSERT INTO chaussure(num_chaussure, nom_chaussure, description_chaussure, prix_
 (NULL, 'Bottines léopard', 'ayez un flow et un charisme incroyable avec ces chaussures', 170.00, 10, 'bottines_leopard.jpeg', 3, 7, 8, 4),
 (NULL, 'Bottines schellsie ', 'des bottines en cuir classique agréable pour vos pieds.', 400.00, 10, 'bottines_Schellsie.jpeg', 3, 9, 8, 1),
 (NULL, 'Bottes de pluie', 'des bottes en caoutchouc à hauteur mollet. vos pieds seront invincible contre la pluie. ', 160.00, 10, 'bottes_pluie.jpg', 2, 6, 9, 1),
-(NULL, 'Bottes rex', 'bottes asiatique en cuir de chien. du grand luxe !.', 180.00, 10, 'bottes_rex.jpg', 2, 3, 3, 4),
+(NULL, 'Bottes rex', 'bottes asiatique en cuir de chien. du grand luxe !.', 180.00, 10, 'bottes_Rex.jpg', 2, 3, 3, 4),
 (NULL, 'Mocassins mariage', 'des mocassins style chêne à porter pour vos mariages', 60.00, 10, 'mocassins_mariage.jpeg', 4, 3, 10, 5),
 (NULL, 'Derbies crunky', 'des chaussures en cuir à grosses semelles.', 200.00, 10, 'derbies_crunky.jpg', 5, 7, 8, 1),
 (NULL, 'Derbies en cuir', 'ces derbies en cuir seront jolies à vos pieds.', 880.00, 10,  'derbies_cuir.jpg', 5, 5, 7, 4),
