@@ -26,7 +26,7 @@ def client_article_show():                                 # remplace client_ind
     chaussures = mycursor.fetchall()
     articles = chaussures
     #fill list_param
-    list_param = []
+    list_param =[]
     condition_and = ""
     # utilisation du filtre
     sql3=''' prise en compte des commentaires et des notes dans le SQL    '''
@@ -44,7 +44,7 @@ def client_article_show():                                 # remplace client_ind
     types_article = couleurs
 
 
-    sql = "SELECT * , 10 as prix , concat('nomarticle',numchaussure) as nom FROM ligne_panier"
+    sql = "SELECT * , prix_chaussure as prix , nom_chaussure as nom FROM ligne_panier LEFT JOIN chaussure ON ligne_panier.numchaussure = chaussure.num_chaussure"
     mycursor.execute(sql)
     articles_panier = mycursor.fetchall()
     prix_total = 123  # requete à faire
