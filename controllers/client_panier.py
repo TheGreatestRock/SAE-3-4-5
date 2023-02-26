@@ -89,9 +89,14 @@ def client_panier_delete_line():
 @client_panier.route('/client/panier/filtre', methods=['POST'])
 def client_panier_filtre():
     mycursor = get_db().cursor()
-    sql = "SELECT * FROM type_chaussure;"
+    sql = '''
+            SELECT id_type_chaussure AS id_type_article
+                    , libelle_type_chaussure AS libelle 
+            FROM type_chaussure;'''
     mycursor.execute(sql)
     type_chaussure = mycursor.fetchall()
+    types_article = type_chaussure
+
 
     filter_word = request.form.get('filter_word', None)
     filter_prix_min = request.form.get('filter_prix_min', None)
@@ -127,7 +132,14 @@ def client_panier_filtre():
                 #                    check_filter_type = False
                 #                    if check_filter_type:
                 session['filter_types'] = filter_types
-    sqlTemp = "SELECT * FROM chaussure INNER JOIN type_chaussure ON type_chaussure.id_type_chaussure = chaussure.idtype_chaussure"
+    sqlTemp = '''
+        SELECT num_chaussure AS id_article
+               , nom_chaussure AS nom
+               , prix_chaussure AS prix
+               , stock_chaussure AS stock
+               , image_chaussure AS image
+               , idtype_chaussure
+        FROM chaussure LEFT JOIN type_chaussure ON type_chaussure.id_type_chaussure = chaussure.idtype_chaussure'''
     list_param = []
     condition_and = ""
     if "filter_word" in session or "filter_prix_min" in session or "filter_prix_max" in session or "filter_types" in session:
@@ -158,9 +170,10 @@ def client_panier_filtre():
     print(sqlTemp)
     cursor_chaussure.execute(sqlTemp, tuple_sql)
     chaussure = cursor_chaussure.fetchall()
+    articles = chaussure
     # test des variables puis
     # mise en session des variables
-    return redirect('/client/article/show')
+    return render_template('client/boutique/panier_article.html', articles=articles, items_filtre=types_article)
 
 
 @client_panier.route('/client/panier/filtre/suppr', methods=['POST'])
