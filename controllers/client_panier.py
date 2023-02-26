@@ -204,5 +204,5 @@ def client_panier_filtre_suppr():
     session.pop('filter_prix_min', None)
     session.pop('filter_prix_max', None)
     session.pop('filter_types', None)
-    print("suppr filtre")
+    print("suppr")
     return redirect('/client/article/show')
