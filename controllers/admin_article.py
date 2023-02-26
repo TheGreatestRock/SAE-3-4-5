@@ -17,7 +17,14 @@ admin_article = Blueprint('admin_article', __name__,
 @admin_article.route('/admin/article/show')
 def show_article():
     mycursor = get_db().cursor()
-    sql = '''  requête admin_article_1
+    sql = '''  
+            SELECT num_chaussure AS id_article
+               , nom_chaussure AS nom
+               , prix_chaussure AS prix
+               , stock_chaussure AS stock
+               , image_chaussure AS image
+        FROM chaussure
+        ORDER BY nom_chaussure; 
     '''
     mycursor.execute(sql)
     articles = mycursor.fetchall()
@@ -26,7 +33,6 @@ def show_article():
 
 @admin_article.route('/admin/article/add', methods=['GET'])
 def add_article():
-    mycursor = get_db().cursor()
 
     return render_template('admin/article/add_article.html'
                            #,types_article=type_article,
@@ -102,13 +108,24 @@ def edit_article():
     id_article=request.args.get('id_article')
     mycursor = get_db().cursor()
     sql = '''
-    requête admin_article_6    
+    SELECT num_chaussure AS id_article
+         , nom_chaussure AS nom
+            , prix_chaussure AS prix
+            , stock_chaussure AS stock
+            , image_chaussure AS image
+            , description_chaussure AS description
+            , idtype_chaussure AS type_article_id
+        FROM chaussure
+        WHERE num_chaussure = %s   
     '''
     mycursor.execute(sql, id_article)
     article = mycursor.fetchone()
     print(article)
     sql = '''
-    requête admin_article_7
+        SELECT id_type_chaussure AS id_type_article
+                , libelle_type_chaussure AS nom_type_article
+                FROM type_chaussure
+                ORDER BY libelle_type_chaussure
     '''
     mycursor.execute(sql)
     types_article = mycursor.fetchall()

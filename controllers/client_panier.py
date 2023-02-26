@@ -20,9 +20,12 @@ def client_panier_add():
     id_declinaison_article = 1
     print(id_article)
 # ajout dans le panier d'une déclinaison d'un article (si 1 declinaison : immédiat sinon => vu pour faire un choix
-    sql = '''  SELECT * FROM ligne_panier WHERE numchaussure = %s AND idutilisateur = %s '''
+    sql = '''  SELECT CONCAT(numchaussure,idutilisateur) as id_article, quantite FROM ligne_panier WHERE numchaussure = %s AND idutilisateur = %s '''
     mycursor.execute(sql, (id_article, id_client))
     article_panier = mycursor.fetchone()
+
+    sql = '''UPDATE chaussure SET stock_chaussure = stock_chaussure - %s WHERE num_chaussure = %s '''
+    mycursor.execute(sql, (quantite,id_article,))
 
     mycursor.execute("SELECT * FROM chaussure WHERE num_chaussure = %s", (id_article,))
     article = mycursor.fetchone()

@@ -13,7 +13,7 @@ client_article = Blueprint('client_article', __name__,
 def client_article_show():                                 # remplace client_index
     mycursor = get_db().cursor()
     id_client = session['id_user'] 
-    sql = '''
+    sql = ''' 
         SELECT num_chaussure AS id_article
                , nom_chaussure AS nom
                , prix_chaussure AS prix
@@ -44,7 +44,7 @@ def client_article_show():                                 # remplace client_ind
     types_article = couleurs
 
 
-    sql = "SELECT * , prix_chaussure as prix , nom_chaussure as nom FROM ligne_panier LEFT JOIN chaussure ON ligne_panier.numchaussure = chaussure.num_chaussure"
+    sql = "SELECT * , prix_chaussure as prix , num_chaussure as id_article, nom_chaussure as nom FROM ligne_panier LEFT JOIN chaussure ON ligne_panier.numchaussure = chaussure.num_chaussure"
     mycursor.execute(sql)
     articles_panier = mycursor.fetchall()
     prix_total = 123  # requete à faire
