@@ -116,6 +116,8 @@ describe commande;
 describe etat;
 describe utilisateur;
 
+INSERT INTO etat(libelle) VALUES ('en cours de traitement'),('expédié'),('validé');
+
 INSERT INTO pointure(code_pointure, libelle_pointure) VALUES
 (NULL, '36'),
 (NULL, '37'),
