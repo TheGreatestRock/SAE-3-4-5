@@ -58,8 +58,8 @@ def valid_add_article():
         print("erreur")
         filename=None
 
-    sql = '''  requête admin_article_2 '''
-
+    sql = ''' INSERT INTO chaussure (nom_chaussure, image_chaussure, prix_chaussure, idtype_chaussure, description_chaussure)
+                VALUES (%s, %s, %s, %s, %s) '''
     tuple_add = (nom, filename, prix, type_article_id, description)
     print(tuple_add)
     mycursor.execute(sql, tuple_add)
@@ -77,20 +77,32 @@ def valid_add_article():
 def delete_article():
     id_article=request.args.get('id_article')
     mycursor = get_db().cursor()
-    sql = ''' requête admin_article_3 '''
+    sql = ''' SELECT COUNT(*) AS nb_declinaison
+                FROM declinaison
+                WHERE id_article = %s
+    '''
     mycursor.execute(sql, id_article)
     nb_declinaison = mycursor.fetchone()
     if nb_declinaison['nb_declinaison'] > 0:
         message= u'il y a des declinaisons dans cet article : vous ne pouvez pas le supprimer'
         flash(message, 'alert-warning')
     else:
-        sql = ''' requête admin_article_4 '''
+        sql = ''' SELECT *
+                    ,nom_chaussure AS nom
+                    , description_chaussure AS description
+                    , prix_chaussure AS prix
+                    , stock_chaussure AS stock
+                    , image_chaussure AS image
+                    , idtype_chaussure AS type_article_id
+                FROM chaussure
+                WHERE num_chaussure = %s
+        '''
         mycursor.execute(sql, id_article)
         article = mycursor.fetchone()
         print(article)
         image = article['image']
 
-        sql = ''' requête admin_article_5  '''
+        sql = ''' DELETE FROM chaussure WHERE num_chaussure = %s AND codepointure = %s '''
         mycursor.execute(sql, id_article)
         get_db().commit()
         if image != None:
@@ -154,7 +166,9 @@ def valid_edit_article():
     image = request.files.get('image')
     description = request.form.get('description')
     sql = '''
-       requête admin_article_8
+        SELECT image_chaussure AS image
+        FROM chaussure
+        WHERE num_chaussure = %s
        '''
     mycursor.execute(sql, id_article)
     image_nom = mycursor.fetchone()
@@ -169,7 +183,7 @@ def valid_edit_article():
             image.save(os.path.join('static/images/', filename))
             image_nom = filename
 
-    sql = '''  requête admin_article_9 '''
+    sql = '''  UPDATE chaussure SET nom_chaussure = %s, image_chaussure = %s, prix_chaussure = %s, idtype_chaussure = %s, description_chaussure = %s, num_chaussure = %s WHERE num_chaussure = %s '''
     mycursor.execute(sql, (nom, image_nom, prix, type_article_id, description, id_article))
 
     get_db().commit()

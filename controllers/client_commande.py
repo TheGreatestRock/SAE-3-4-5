@@ -13,19 +13,35 @@ client_commande = Blueprint('client_commande', __name__,
 def client_commande_valide():
     mycursor = get_db().cursor()
     id_client = session['id_user']
-    sql = ''' selection des articles d'un panier 
+
+    #selection des articles d'un panier
+    sql = ''' 
+    SELECT  nom_chaussure as nom, quantite, prix_chaussure as prix, j.stock_chaussure AS stock, ligne_panier.numchaussure AS id_article
+    FROM ligne_panier
+    JOIN chaussure j on j.num_chaussure = ligne_panier.numchaussure
+    WHERE idutilisateur = %s;
     '''
-    articles_panier = []
+    #articles_panier = []
+    mycursor.execute(sql, id_client)
+    articles_panier = mycursor.fetchall()
+
+    #selection du prix total du panier
     if len(articles_panier) >= 1:
-        sql = ''' calcul du prix total du panier '''
-        prix_total = None
+        sql = '''
+        SELECT SUM(prix_chaussure*quantite) as prix_total
+        FROM ligne_panier
+        JOIN chaussure j on j.num_chaussure = ligne_panier.numchaussure
+        WHERE idutilisateur = %s;
+        '''
+        mycursor.execute(sql, id_client)
+        prix_total = mycursor.fetchone()
     else:
         prix_total = None
     # etape 2 : selection des adresses
     return render_template('client/boutique/panier_validation_adresses.html'
                            #, adresses=adresses
                            , articles_panier=articles_panier
-                           , prix_total= prix_total
+                           , prix_total=prix_total
                            , validation=1
                            )
 
@@ -33,27 +49,37 @@ def client_commande_valide():
 def client_commande_add():
     mycursor = get_db().cursor()
 
-    # choix de(s) (l')adresse(s)
+    date = datetime.now().strftime('%Y-%m-%d')
+    id_user = session['id_user']
+    tuple = (date, id_user)
 
-    id_client = session['id_user']
-    sql = ''' selection du contenu du panier de l'utilisateur '''
-    items_ligne_panier = []
-    # if items_ligne_panier is None or len(items_ligne_panier) < 1:
-    #     flash(u'Pas d\'articles dans le ligne_panier', 'alert-warning')
-    #     return redirect(url_for('client_index'))
-                                           # https://pynative.com/python-mysql-transaction-management-using-commit-rollback/
-    #a = datetime.strptime('my date', "%b %d %Y %H:%M")
+    sql = "insert into commande(date_achat, idetat, idutilisateur) values(%s,1,%s);"
+    mycursor.execute(sql, tuple)
 
-    sql = ''' creation de la commande '''
+    sql = "select last_insert_id() as last_insert_id from commande where idutilisateur = %s;"
+    mycursor.execute(sql, id_user)
+    commande_last_id = mycursor.fetchone()
 
-    sql = '''SELECT last_insert_id() as last_insert_id'''
-    # numéro de la dernière commande
-    for item in items_ligne_panier:
-        sql = ''' suppression d'une ligne de panier '''
-        sql = "  ajout d'une ligne de commande'"
+    sql = "select * from ligne_panier where idutilisateur = %s;"
+    mycursor.execute(sql, id_user)
+    panier = mycursor.fetchall()
 
+    for item in panier:
+        sql = "select prix_chaussure from chaussure where num_chaussure = %s;"
+        mycursor.execute(sql, item['numchaussure'])
+        prix = mycursor.fetchone()
+        sql = '''insert into ligne_commande(numchaussure, idcommande, prix, quantite) values (%s,%s,%s,%s);'''
+        mycursor.execute(sql, (item['numchaussure'], commande_last_id['last_insert_id'], prix['prix_chaussure'], item['quantite']))
+
+    sql = '''select * from ligne_commande;'''
+    mycursor.execute(sql)
+    resultat = mycursor.fetchall()
+    print(resultat)
+
+    sql = "delete from ligne_panier where idutilisateur = %s;"
+    mycursor.execute(sql, id_user)
     get_db().commit()
-    flash(u'Commande ajoutée','alert-success')
+    flash(u'Commande ajoutée')
     return redirect('/client/article/show')
 
 
@@ -63,15 +89,35 @@ def client_commande_add():
 def client_commande_show():
     mycursor = get_db().cursor()
     id_client = session['id_user']
-    sql = '''  selection des commandes ordonnées par état puis par date d'achat descendant '''
-    commandes = []
+
+
+
+    sql = '''  SELECT date_achat AS date_achat, SUM(lc.quantite) AS nbr_articles, SUM(lc.prix*lc.quantite) AS prix_total, e.libelle_etat AS libelle, commande.idetat AS etat_id, lc.idcommande AS id_commande
+               FROM commande
+               JOIN ligne_commande lc on commande.id_commande = lc.idcommande
+               JOIN etat e on commande.idetat = e.id_etat
+               WHERE idutilisateur = %s
+               GROUP BY id_commande
+               ORDER BY commande.idetat, commande.date_achat; '''
+
+
+    mycursor.execute(sql, id_client)
+    commandes = mycursor.fetchall()
+
 
     articles_commande = None
     commande_adresses = None
     id_commande = request.args.get('id_commande', None)
     if id_commande != None:
         print(id_commande)
-        sql = ''' selection du détails d'une commande '''
+        sql = ''' SELECT nom_chaussure AS nom, prix, quantite, prix*quantite AS prix_ligne
+                  FROM commande
+                  JOIN ligne_commande lc on commande.id_commande = lc.idcommande
+                  JOIN chaussure on lc.numchaussure = chaussure.num_chaussure
+                  WHERE commande.id_commande=%s; '''
+        mycursor.execute(sql, (id_commande))
+        articles_commande = mycursor.fetchall()
+
 
         # partie 2 : selection de l'adresse de livraison et de facturation de la commande selectionnée
         sql = ''' selection des adressses '''
