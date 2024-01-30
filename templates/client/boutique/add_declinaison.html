@@ -1,0 +1,62 @@
+    {% extends 'client/layout_client.html' %}
+    {% block title %}
+        <title>ajouter un article</title>
+    {% endblock %}
+    
+    {% block body %}
+        <h2>ajouter un article</h2>
+            <div class="row mt-5">
+            {%  if article.image is not none %}
+                <img class="card-img-top rounded mx-4 d-block"  style="width:200px; height:200px; border: 1px solid black; padding: 25px;"   id="img_output" src="{{ url_for('static', filename = 'images/') }}{{ article.image}}"  alt="image  de {{ article.nom }}" >
+            {% endif %}
+                <div class="w-25">
+                    <form class="w-190" method="post" action="/client/panier/add" enctype="multipart/form-data">
+                        <input id="id_article" type="hidden" name="id_article" value="{{ article.id_article }}">
+                        <label for="nom">Nom : 
+                           {{ article.nom }}<br>
+                        </label>
+                        <br><label for="prix" > Prix (€) : 
+                            {{ article.prix }}<br>
+                        </label>
+                        <br><label for="stock">Stock : 
+                            {{ article.stock }}  <br>
+                        </label>
+                        <br><label for="type_article_id">Type de l'article : 
+                            {{ article.type_article }} <br><br>
+                        </label>
+                        <br><label for="pointure">pointure : 
+                            <select name="pointure" class="form-select" id="pointure">
+                                {% for pointure in pointures %}
+                                    <option value="{{ pointure.code_pointure }}" {% if pointure.code_pointure == article.codepointure %} selected {% endif %}> {{ pointure.libelle_pointure }}</option>
+                                {% endfor %}
+                            </select>
+                        </label>
+                        <br><label for="couleur">couleur : 
+                            <select name="couleur" class="form-select" id="couleur">
+                                {% for couleur in couleurs %}
+                                    <option value="{{ couleur.code_couleur }}" {% if couleur.code_couleur == article.codecouleur %} selected {% endif %}> {{ couleur.libelle_couleur }}</option>
+                                {% endfor %}
+                            </select>
+                        </label>
+                        <br><label for="quantite">quantité : 
+                            <input type="number" name="quantite" id="quantite" min="1" max="{{ article.stock }}" value="1" required>
+                        <label for="stock_dispo">Stock disponible : 
+                        <div>
+                            {% for all_dec in declinaisons_article %}
+                                <p> couleur({{ all_dec.libelle_couleur }}), pointure({{ all_dec.libelle_pointure }}) : {{ all_dec.stock }}</p>
+                            {% endfor %}
+                        </div>
+                        </label>
+                        <br><label for="description">Description : <br>
+                            {{ article.description }} <br>
+                        </label>
+                        <!--bouton pour valider le formulaire-->
+                        <label for="submit">
+                            <input name="submit" type="submit" value="Ajouter" class="btn btn-primary mt-2">
+                        </label>
+                        <a class="btn btn-secondary mt-2" href="/client/article/show"  role="button">annuler</a>
+                    </form>
+                </div>
+            </div>
+    {% endblock %}
+    

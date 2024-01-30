@@ -23,7 +23,7 @@
 <table class="table">
     <thead class="thead-dark">
         <tr>
-           <th>xxxxxxxxxx</th> <th>(id)</th><th>x</th>
+           <th>chaussure</th> <th>(id)</th><th>Quantité</th>
         </tr>
     </thead>
     <tbody>
@@ -31,10 +31,10 @@
         {% for ligne in datas_show %}
            <tr>
                   <td>{{ ligne.libelle }}</td>
-                  <td>{{ ligne.xxxxx }}</td>
+                  <td>{{ ligne.id }}</td>
                    <td><span style="color: red">
-                       {% if ligne.xxxxxx is not none %}
-                           {{ ligne.xxxxxx }}
+                       {% if ligne.quantite  is not none %}
+                           {{ ligne.quantite  }}
                        {% else %}
                            pas d'article
                        {% endif %}
@@ -50,57 +50,62 @@
 <br>
 {#    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>#}
 
-<h2>visualisation de données : graph.js</h2>
-<h3>Documentation</h3>
+<h2>Quantité de Stocks par type de chaussure :</h2>
 <br>
-    <a href="https://tobiasahlin.com/blog/chartjs-charts-to-get-you-started/" target="_blank"> tuto partie1 graph.js</a><br>
+<!--    <a href="https://tobiasahlin.com/blog/chartjs-charts-to-get-you-started/" target="_blank"> tuto partie1 graph.js</a><br>
     <a href="https://tobiasahlin.com/blog/introduction-to-chartjs" target="_blank"> tuto partie2 graph.js</a>&nbsp;
 <br>
     <a href="https://www.youtube.com/watch?v=E2hytuQvLlE" target="_blank"> vidéo : flask + graph.js</a>&nbsp;
-    <br>
+    <br>-->
 
 {# https://jinja.palletsprojects.com/en/3.0.x/templates/#html-escaping #}
     <div style="width: 900px; height: 500px; border: #0a53be 1px solid;">
         <canvas id="Chart1" ></canvas>
     </div>
-    graphique 1
     <script>
-	var ctx1 = document.getElementById("Chart1").getContext("2d");
-	var Chart1 = new Chart( ctx1, {
-  		type: "bar",
-  		data: {
-  			labels: {{ labels | safe }},
-  			datasets: [
-  				{
-  				label: "xxxxxxxxxxxxxxx)",
-  				data: {{ values | safe }},
-  				fill: false,
-                 backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850",
+var ctx1 = document.getElementById("Chart1").getContext("2d");
+var Chart1 = new Chart( ctx1, {
+  type: "bar",
+  data: {
+    labels: {{ labels | safe }},
+    datasets: [
+      {
+      label: "Nombre de chaussures par type (id)",
+      data: {{ values | safe }},
+      fill: false,
+      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850",
              "#faf24c"
              , "#6a6ce7","#55f68f","#D0c309","#c45000"],
-  				borderColor: "rgb(75,192,192)",
-  				lineTension: 0.1
-  				}
-  			]
-  		},
-  		option: {
-  			responsive: false
-  		}
-	});
+      borderColor: "rgb(75,192,192)",
+      lineTension: 0.1
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
     </script>
 
 
-    <h2>demo graphique à secteurs : "camenberd" ,"donut" ( "pie-chart"  "doughtnut")</h2>
+    <h2>répartition des stocks de chaussure :</h2>
 
-    <canvas id="pie-chart" width="800" height="450"></canvas>
+    <canvas id="doughnut-chart" width="800" height="450"></canvas>
 
     <script>
-	var Chart2 = new Chart(document.getElementById("pie-chart"), {
-    type: 'pie',
+	var Chart2 = new Chart(document.getElementById("doughnut-chart"), {
+    type: 'doughnut',
     data: {
       labels: {{ labels | safe }},
       datasets: [{
-        label: "xxxxxxxxxxxx",
+        label: "nombre de chaussures par type (id)",
          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850",
              "#faf24c"
              , "#6a6ce7","#55f68f","#D0c309","#c45000"],
@@ -116,7 +121,78 @@
     });
     </script>
 
-    <a href="https://www.youtube.com/watch?v=TcwYXIIM-fs" target="_blank">dataviz, c'est quoi en 1 mn ? (juste la première minute)</a>
-    <br>
-    <a href="https://www.youtube.com/watch?v=bZDnSUjfMt8" target="_blank">dataviz, c'est quoi ? (juste la première minute)</a>
+<h2>détail quantité de taille et couleur par type de chaussure :</h2>
+
+<canvas id="radar-chart-by-size"></canvas>
+<canvas id="radar-chart-by-color"></canvas>
+<script>
+  const chaussures = {{ chaussures | tojson }};
+  const colors = ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'];
+  const labelsSize = chaussures.length > 0 ? Object.keys(chaussures[0]).filter(key => key.startsWith('quantite_pointure_')).map(key => chaussures[0][key] !== 0 ? key.split('libelle_pointure: ')[1]?.slice(0,-2) : null) : [];
+  const dataBySize = chaussures.map((chaussure, index) => ({
+  label: chaussure.libelle,
+  data: Object.keys(chaussure).filter(key => key.startsWith('quantite_pointure_')).map(key => chaussure[key]),
+  borderColor: colors[index % colors.length],
+  borderWidth: 2
+}));
+
+  const labelsColor = Object.keys(chaussures[0]).filter(key => key.startsWith('quantite_couleur_')).map(key => chaussures[0][key] !== 0 ? key.split('libelle_couleur: ')[1]?.slice(0,-2) : null);
+  //show it in the console
+    console.log(labelsColor);
+  const dataByColor = chaussures.map((chaussure, index) => ({
+  label: chaussure.libelle,
+  data: Object.keys(chaussure).filter(key => key.startsWith('quantite_couleur_')).map(key => chaussure[key]),
+  borderColor: colors[index % colors.length],
+  borderWidth: 2
+}));
+
+const configBySize = {
+  type: 'radar',
+  data: {
+    labels: {{ labelsradarpointure | safe}},
+    datasets: dataBySize
+  },
+  options: {
+    scale: {
+      pointLabels: {
+        fontSize: 14,
+        fontStyle: 'bold',
+        fontColor: '#333'
+      },
+      ticks: {
+        beginAtZero: true
+      }
+    }
+  }
+};
+
+const configByColor = {
+  type: 'radar',
+  data: {
+    labels: {{ labelsradarcouleur | safe}},
+    datasets: dataByColor
+  },
+  options: {
+    scale: {
+      pointLabels: {
+        fontSize: 14,
+        fontStyle: 'bold',
+        fontColor: '#333'
+      },
+      ticks: {
+        beginAtZero: true
+      }
+    }
+  }
+}
+
+  const ctxBySize = document.getElementById('radar-chart-by-size').getContext('2d');
+  new Chart(ctxBySize, configBySize);
+
+  const ctxByColor = document.getElementById('radar-chart-by-color').getContext('2d');
+  new Chart(ctxByColor, configByColor);
+</script>
+
+
+
 {% endblock %}

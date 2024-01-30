@@ -31,13 +31,16 @@ types_article : tableau de dictionnaires
                     <label for="prix" > Prix (€) :
                         <input name="prix" type="number" min="0.0" step="0.01" value="{{ article.prix }}" class="form-control" >
                     </label>
-                    <label for="image">Image :                       {# à modifier #}
+                    <br><label for="stock">Stock :
+                        {{ article.stock }}
+                    </label>
+                    <br><label for="image">Image :                       {# à modifier #}
                         <input name="image"  onchange="loadFile(event)" type="file" class="form-control" value="{{ article.image }}">             {# à modifier #}
                     </label>                                         {# à modifier #}
 {#                https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flask#}
 
-                <label for="type_article_id">Type de l'article :
-                    <select name="type_article_id" class="form-select">
+                <label for="typearticle_id">Type de l'article :
+                    <select name="typearticle_id" class="form-select">
                             {% for type in types_article %}
                                  <option value="{{ type.id_type_article }}" {% if type.id_type_article == article.type_article_id %} selected {% endif %}> {{ type.libelle }}</option>
                             {% endfor %}
@@ -85,14 +88,22 @@ types_article : tableau de dictionnaires
                                     <td>
                                         {{ declinaison_article.libelle_couleur }}
                                     </td>
-                                    <td>{{ declinaison_article.stock }}</td>
+                                    {% if declinaison_article.stock is defined %}
+                                    {% if declinaison_article.stock > 0 %}
+                                    <td><strong style="color: green">{{ declinaison_article.stock }}</strong></td>
+                                    {% else %}
+                                    <td><strong style="color: red">stock vide</strong></td>
+                                    {% endif %}
+                                 {% else %}
+                                     ND
+                                 {% endif %}
                                     <td style="display: flex">
-                                        <a class="img-fluid" href="/admin/declinaison_article/delete?id_declinaison_article={{ declinaison_article.id_declinaison_article }}&amp;id_article={{ declinaison_article.article_id }}">
+                                        <a class="img-fluid" href="/admin/declinaison_article/delete?id_declinaison_article={{ article.id_article }}&amp;id_article={{ article.id_article }}&amp;code_couleur={{ declinaison_article.code_couleur }}&amp;code_taille={{ declinaison_article.code_taille }}">
                                             <button class="btn btn-primary mx-1">
                                                 supprimer
                                             </button>
                                         </a>
-                                        <a class="img-fluid" href="/admin/declinaison_article/edit?id_declinaison_article={{ declinaison_article.id_declinaison_article }}">
+                                        <a class="img-fluid" href="/admin/declinaison_article/edit?id_declinaison_article={{ article.id_article }}&amp;id_article={{ article.id_article }}&amp;code_couleur={{ declinaison_article.code_couleur }}&amp;code_taille={{ declinaison_article.code_taille }}">
                                             <button class="btn btn-primary mx-1">
                                                 editer
                                             </button>

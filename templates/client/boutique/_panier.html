@@ -4,6 +4,8 @@
                 <table class="table table-hover table-responsive">
                     <tr>
                         <th style="width: 300px">Nom</th>
+                        <th style="width: 300px">Couleur</th>
+                        <th style="width: 300px">Pointure</th>
                         <th style="width: 50px">Quantité</th>
                         <th style="width: 50px">Prix</th>
                         <th style="width: 100px">Sous-Total</th>
@@ -11,25 +13,22 @@
                     </tr>
                     {% for item_panier in articles_panier %}
                         <tr>
-                            <td>{{item_panier.nom}}
-                                
-                            {% if item_panier.id_couleur is defined and item_panier.id_couleur >1 %}
-                                <small style="color: #6dcea2">({{ item_panier.libelle_couleur }})</small>
-                            {% endif %}
-                            {% if item_panier.id_taille is defined and item_panier.id_taille >1 %}
-                                <small style="color: #d941c2">({{ item_panier.libelle_couleur }})</small>
-                            {% endif %}
-                            </td>
+                            <td>{{item_panier.nom}}</td>
+                            <td>{{item_panier.couleur}}</td>
+                            <td>{{item_panier.taille}}</td>
                             <td>{{item_panier.quantite}}</td>
                             <td>{{item_panier.prix}}</td>
                             <td>{{ "{:,.2f} €".format((item_panier.prix * item_panier.quantite)) }}{#{(panier.article.prix * panier.quantite)|number_format(2) }#}</td>
                             <td>
+                                
 {# #}                            {% if item_panier.stock is defined %}
 {# #}                               {% if item_panier.stock > 0 %}
                                 <form action="/client/panier/add"  style="display: inline-block;"  method="post">
 {# #}                                   <input type="hidden" name="id_declinaison_article" value="{{ item_panier.id_declinaison_article }}">
                                         <input type="hidden" name="quantite" value="1">
                                         <input type="hidden" name="id_article" value="{{ item_panier.id_article }}">
+                                        <input type="hidden" name="pointure" value="{{ item_panier.code_pointure }}">
+                                        <input type="hidden" name="couleur" value="{{ item_panier.code_couleur }}">
                                     <button class="btn btn-primary" > + </button>
                                 </form>
 {# #}                               {% endif %}
@@ -37,12 +36,16 @@
                                 <form action="/client/panier/delete"   style="display: inline-block;"  method="post">
 {# #}                               <input type="hidden" name="id_declinaison_article" value="{{ item_panier.id_declinaison_article }}">
                                     <input type="hidden" name="id_article" value="{{ item_panier.id_article }}">
+                                    <input type="hidden" name="pointure" value="{{ item_panier.code_pointure }}">
+                                    <input type="hidden" name="couleur" value="{{ item_panier.code_couleur }}">
                                     <button class="btn btn-primary" > - </button>
                                 </form>
 
                                 <form action="/client/panier/delete/line"  style="display: inline-block;"  method="post">
 {# #}                               <input type="hidden" name="id_declinaison_article" value="{{ item_panier.id_declinaison_article }}">
                                     <input type="hidden" name="id_article" value="{{ item_panier.id_article }}">
+                                    <input type="hidden" name="pointure" value="{{ item_panier.code_pointure }}">
+                                    <input type="hidden" name="couleur" value="{{ item_panier.code_couleur }}">
                                     <button class="btn btn-primary" >Supprimer</button>
                                 </form>
                             </td>

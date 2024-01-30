@@ -1,0 +1,15 @@
+ôt élevés si plusieurs utilisateurs doivent pouvoir regarder des vidéos en même temps sur votre site.
+
+Le nombre de cœur et de CPU
+Ce nombre représente la puissance de traitement des données et des requêtes envoyées au serveur. Concrètement ce nombre détermine la vitesse à laquelle les données de votre site sont analysées et affichées. Vos besoins en la matière vont donc dépendre du trafic et du nombre de requêtes générés par votre site. A titre d’exemple, un site e-commerce aura besoin d’un hébergement web avec un nombre de CPU plus important qu’un simple site vitrine, étant donné qu’il génère un grand nombre d’interactions (consulter un produit, l’ajouter au panier, etc…)
+
+La RAM (ou mémoire vive)
+Elle permet de stocker temporairement les données et requêtes répétitives nécessaires au bon fonctionnement de votre site. Ce processus se nomme la mise en cache. Il permet d’offrir aux utilisateurs un accès plus rapide à vos pages web. Plus votre site sera « lourd », c’est à dire qu’il comprendra de nombreux fichiers structurels, plus vous aurez besoin de RAM. Pour être tranquille gardez à l’esprit que plus vous aurez de mémoire vive plus vous pourrez faire face à d’importants pics de trafic.
+
+Les bases de données
+Les bases de données servent à stocker et à conserver toutes les données et les informations de votre site (exemple : création d’un nouvel article de blog, mise à jour d’une image, etc…). Le nombre de bases, leurs systèmes de gestion (MySQL, PostgreSQL, MongoDB, etc…) et leurs capacités de stockage varient d’un hébergeur à l’autre. Vous devrez donc faire votre choix en fonction de la fréquence de création de nouveaux contenus. Par exemple, un site d’actualités ou un site qui doit supporter de nombreuses inscriptions devra bénéficier d’une base de données avec une grosse capacité de stockage.
+
+3. La sécurité de vos données
+La sécurité de vos données fait également partie des critères de sélection à étudier pour bien choisir votre hébergeur web.
+
+Vous devrez donc être vigilant sur les services garantis par l’

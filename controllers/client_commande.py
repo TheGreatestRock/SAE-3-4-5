@@ -16,10 +16,13 @@ def client_commande_valide():
 
     #selection des articles d'un panier
     sql = ''' 
-    SELECT  nom_chaussure as nom, quantite, prix_chaussure as prix, j.stock_chaussure AS stock, ligne_panier.numchaussure AS id_article
+    SELECT DISTINCT nom_chaussure as nom, quantite, prix_chaussure as prix, ligne_panier.numchaussure AS id_article, ligne_panier.codecouleur AS code_couleur, ligne_panier.codepointure AS code_pointure, c.libelle_couleur as couleur, p.libelle_pointure as taille
     FROM ligne_panier
     JOIN chaussure j on j.num_chaussure = ligne_panier.numchaussure
-    WHERE idutilisateur = %s;
+    JOIN declinaison d on d.num_chaussure = ligne_panier.numchaussure
+    JOIN couleur c on c.code_couleur = ligne_panier.codecouleur
+    JOIN pointure p on p.code_pointure = ligne_panier.codepointure
+    WHERE idutilisateur = %s AND quantite > 0;
     '''
     #articles_panier = []
     mycursor.execute(sql, id_client)
@@ -38,6 +41,7 @@ def client_commande_valide():
     else:
         prix_total = None
     # etape 2 : selection des adresses
+    print("777777777777777777777777777",articles_panier)
     return render_template('client/boutique/panier_validation_adresses.html'
                            #, adresses=adresses
                            , articles_panier=articles_panier
@@ -63,13 +67,13 @@ def client_commande_add():
     sql = "select * from ligne_panier where idutilisateur = %s;"
     mycursor.execute(sql, id_user)
     panier = mycursor.fetchall()
-
+    print(panier)
     for item in panier:
         sql = "select prix_chaussure from chaussure where num_chaussure = %s;"
         mycursor.execute(sql, item['numchaussure'])
         prix = mycursor.fetchone()
-        sql = '''insert into ligne_commande(numchaussure, idcommande, prix, quantite) values (%s,%s,%s,%s);'''
-        mycursor.execute(sql, (item['numchaussure'], commande_last_id['last_insert_id'], prix['prix_chaussure'], item['quantite']))
+        sql = '''insert into ligne_commande(numchaussure, idcommande, prix, quantite, code_couleur, code_pointure) values (%s,%s,%s,%s,%s,%s);'''
+        mycursor.execute(sql, (item['numchaussure'], commande_last_id['last_insert_id'], prix['prix_chaussure'], item['quantite'], item['codecouleur'], item['codepointure']))
 
     sql = '''select * from ligne_commande;'''
     mycursor.execute(sql)
@@ -92,12 +96,14 @@ def client_commande_show():
 
 
 
-    sql = '''  SELECT date_achat AS date_achat, SUM(lc.quantite) AS nbr_articles, SUM(lc.prix*lc.quantite) AS prix_total, e.libelle_etat AS libelle, commande.idetat AS etat_id, lc.idcommande AS id_commande
+    sql = '''  SELECT DISTINCT date_achat AS date_achat, SUM(lc.quantite) AS nbr_articles, SUM(lc.prix*lc.quantite) AS prix_total, e.libelle_etat AS libelle, commande.idetat AS etat_id, lc.idcommande AS id_commande, c.libelle_couleur AS couleur, p.libelle_pointure AS pointure
                FROM commande
                JOIN ligne_commande lc on commande.id_commande = lc.idcommande
                JOIN etat e on commande.idetat = e.id_etat
+               JOIN couleur c on lc.code_couleur = c.code_couleur
+               JOIN pointure p on lc.code_pointure = p.code_pointure
                WHERE idutilisateur = %s
-               GROUP BY id_commande
+               GROUP BY id_commande,date_achat,libelle,etat_id
                ORDER BY commande.idetat, commande.date_achat; '''
 
 
@@ -110,13 +116,16 @@ def client_commande_show():
     id_commande = request.args.get('id_commande', None)
     if id_commande != None:
         print(id_commande)
-        sql = ''' SELECT nom_chaussure AS nom, prix, quantite, prix*quantite AS prix_ligne
+        sql = ''' SELECT nom_chaussure AS nom, prix, quantite, prix*quantite AS prix_ligne, lc.idcommande AS id_commande, c.libelle_couleur AS couleur, p.libelle_pointure AS pointure
                   FROM commande
                   JOIN ligne_commande lc on commande.id_commande = lc.idcommande
                   JOIN chaussure on lc.numchaussure = chaussure.num_chaussure
+                  JOIN couleur c on lc.code_couleur = c.code_couleur
+                  JOIN pointure p on lc.code_pointure = p.code_pointure
                   WHERE commande.id_commande=%s; '''
         mycursor.execute(sql, (id_commande))
         articles_commande = mycursor.fetchall()
+        print(articles_commande)
 
 
         # partie 2 : selection de l'adresse de livraison et de facturation de la commande selectionnée

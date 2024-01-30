@@ -13,17 +13,13 @@ client_article = Blueprint('client_article', __name__,
 def client_article_show():                                 # remplace client_index
     mycursor = get_db().cursor()
     id_client = session['id_user']
-
-
-
-
-    sql = " SELECT num_chaussure AS id_article, description_chaussure AS nom, stock_chaussure AS stock, prix_chaussure AS prix, image_chaussure AS image FROM chaussure "
+    sql = " SELECT num_chaussure AS id_article, nom_chaussure AS nom, prix_chaussure AS prix, image_chaussure AS image FROM chaussure "
     list_param = []
     condition_and = ""
     if "filter_word" in session or "filter_prix_min" in session or "filter_prix_max" in session or "filter_types" in session:
         sql = sql + " where "
     if "filter_word" in session:
-        sql = sql + "description_chaussure like %s "
+        sql = sql + "nom_chaussure like %s "
         recherche = "%" + session["filter_word"] + "%"
         list_param.append(recherche)
         condition_and = "and "
@@ -51,11 +47,13 @@ def client_article_show():                                 # remplace client_ind
             FROM type_chaussure;"""
     mycursor.execute(sql)
     type_article = mycursor.fetchall()
-
+    print(id_client)
     sql = ''' 
-    SELECT  nom_chaussure as nom, quantite, prix_chaussure as prix, j.stock_chaussure AS stock, ligne_panier.numchaussure AS id_article
+    SELECT  nom_chaussure as nom, quantite, prix_chaussure as prix, ligne_panier.numchaussure AS id_article, ligne_panier.codecouleur AS code_couleur, ligne_panier.codepointure AS code_pointure, c.libelle_couleur AS code_couleur, p.libelle_pointure AS taille
     FROM ligne_panier
     JOIN chaussure j on j.num_chaussure = ligne_panier.numchaussure
+    JOIN couleur c on c.code_couleur = ligne_panier.codecouleur
+    JOIN pointure p on p.code_pointure = ligne_panier.codepointure
     WHERE idutilisateur = %s;
     '''
     # articles_panier = []
@@ -70,6 +68,14 @@ def client_article_show():                                 # remplace client_ind
         prix_total = mycursor.fetchone()
     else:
         prix_total = 0
+    for article in articles:
+        sql = ''' SELECT SUM(stock_declinaison) AS stock FROM declinaison WHERE num_chaussure = %s;'''
+        mycursor.execute(sql, article['id_article'])
+        stock = mycursor.fetchone()
+        if stock == None:
+            article['stock'] = 0
+        else:
+            article['stock'] = stock['stock']
     return render_template('client/boutique/panier_article.html'
                            , articles=articles
                            , type_article=type_article

@@ -1,0 +1,17 @@
+Il convient parfaitement aux sites de e-commerce de taille moyenne, ainsi qu’aux sites vitrines et institutionnels fortement fréquentés.
+
+Scalable
+schema explicatif fonctionnement hébergeur scalable
+L’hébergement cloud consiste à installer un site web sur un groupe de serveurs reliés les uns aux autres. Ces derniers fonctionnent comme un seul serveur et se répartissent la charge liée aux fluctuations du trafic, afin d’assurer la disponibilité du site aux internautes.
+
+Votre site ou application n’utilise donc plus une machine physique précise mais accède à un « groupe de serveurs ». Lorsque de nouvelles machines sont connectées à ce groupe, ses ressources augmentent. Elles s’adaptent ainsi aux pics de trafic, à la demande horaire et/ou saisonnière. Et si un serveur tombe en panne, les autres compenseront sa charge et assureront la pérennité du service.
+
+L’intérêt principal de cette solution réside donc dans sa grande flexibilité. Il favorise la souplesse d’utilisation et la scalabilité des ressources des serveurs tout en isolant ces dernières (seul votre site en profite). Et en terme de facturation, vous ne payez que pour les ressources que vous utilisez en temps réel.
+
+Ce type d’hébergement est tout à fait indiqué pour les grosses boutiques e-commerce, les sites à fort trafic ou qui doivent être disponibles 24h/24 et 7jours/7, ou encore les multinationales.
+
+2. Les performances de l’hébergeur
+Les performances techniques de l’hébergeur sont déterminantes pour le bon fonctionnement de votre site web. Vous devez être attentifs à ces quatre indicateurs :
+
+La bande passante
+Elle correspond à la quantité de données envoyées sur le réseau simultanément. Ses performances impacteront énormément le temps de chargement des pages de votre site. Il faut donc vérifier qu’elle puisse supporter vos prévisions de trafic. N’oubliez pas de prendre en compte les éventuels pics de fréquentation liés à la saisonnalité (Black Friday, par exemple) ou une campagne marketing. Ainsi que le type de contenus proposés. Vos besoins seront plut

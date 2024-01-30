@@ -17,22 +17,21 @@
                 <form class="w-190" method="post" action="/admin/declinaison_article/edit" enctype="multipart/form-data">
                     <input type="hidden" value="{{ declinaison_article.id_declinaison_article }}" name="id_declinaison_article">
                     <input type="hidden" value="{{ declinaison_article.article_id }}" name="id_article">
+                    
                     <label for="stock">Stock :
-                        <input name="stock" type="number" min="0.0" step="0.01" value="{{ declinaison_article.stock }}" class="form-control" >
+                        <input name="stock" type="number" min="0" step="1" value="{{ declinaison_article.stock }}" class="form-control" >
                     </label>
-                    <label for="id_taille">taille :
-                        <select name="id_taille" class="form-select">
+                    <br><label for="id_taille">taille :
+                        <input type="hidden" value="{{ declinaison_article.taille_id }}" name="id_taille">
                             {% for taille in tailles %}
-                                 <option value="{{ taille.id_taille }}" {% if taille.id_taille == declinaison_article.taille_id %} selected {% endif %}> {{ taille.libelle }}</option>
+                                {% if taille.id_taille == declinaison_article.taille_id %} {{ taille.libelle }} {% endif %}
                             {% endfor %}
-                        </select>
                     </label>
                     <label for="id_couleur"> couleur :
-                        <select name="id_couleur" class="form-select">
+                        <input type="hidden" value="{{ declinaison_article.couleur_id }}" name="id_couleur">
                             {% for couleur in couleurs %}
-                                 <option value="{{ couleur.id_couleur }}" {% if couleur.id_couleur == declinaison_article.couleur_id %} selected {% endif %}> {{ couleur.libelle }}</option>
+                                 {% if couleur.id_couleur == declinaison_article.couleur_id %} {{ couleur.libelle }} {% endif %}
                             {% endfor %}
-                        </select>
                     </label>
                     <br>
                 <label for="submit">

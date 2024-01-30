@@ -23,7 +23,7 @@ def admin_commande_show():
                JOIN ligne_commande lc on commande.id_commande = lc.idcommande
                JOIN etat e on commande.idetat = e.id_etat
                JOIN utilisateur u on commande.idutilisateur = u.id_utilisateur
-               GROUP BY id_commande
+               GROUP BY id_commande,date_achat,libelle,etat_id,nom_client
                ORDER BY commande.idetat, date_achat DESC ,SUM(lc.prix*lc.quantite) DESC
                '''
 
@@ -35,10 +35,12 @@ def admin_commande_show():
     id_commande = request.args.get('id_commande', None)
     print(id_commande)
     if id_commande != None:
-        sql = '''  SELECT nom_chaussure AS nom, prix, quantite, prix*quantite AS prix_ligne
+        sql = '''  SELECT nom_chaussure AS nom, prix, quantite, prix*quantite AS prix_ligne, libelle_couleur AS couleur, libelle_pointure AS pointure
                   FROM commande
                   JOIN ligne_commande lc on commande.id_commande = lc.idcommande
                   JOIN chaussure on lc.numchaussure = chaussure.num_chaussure
+                  JOIN couleur on lc.code_couleur = couleur.code_couleur
+                  JOIN pointure on lc.code_pointure = pointure.code_pointure
                   WHERE commande.id_commande=%s;  '''
         mycursor.execute(sql, (id_commande))
         articles_commande = mycursor.fetchall()

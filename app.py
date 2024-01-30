@@ -72,7 +72,7 @@ app.register_blueprint(client_commentaire)
 app.register_blueprint(client_panier)
 app.register_blueprint(client_coordonnee)
 app.register_blueprint(client_liste_envies)
-
+ 
 app.register_blueprint(admin_article)
 app.register_blueprint(admin_declinaison_article)
 app.register_blueprint(admin_commande)
@@ -82,5 +82,5 @@ app.register_blueprint(admin_commentaire)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 

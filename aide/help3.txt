@@ -1,0 +1,17 @@
+clients est également un bon point car elle permet souvent de résoudre les problèmes les plus communs.
+
+6. L’évolutivité de l’hébergement
+Il est crucial que vous puissiez faire évoluer votre site et votre hébergement en toute autonomie et sans que cela soit trop contraignant pour vous (évolution des technologies de votre site web, modification du type d’hébergement ou des caractéristiques techniques, etc…). De même que votre hébergeur se doit d’être au courant des dernières innovations technologiques ou matérielles du marché et s’y adapter. Ceci dans le but de pouvoir vous accompagner dans votre évolutions à vous.
+
+Pour vous renseigner sur ce sujet, vous pouvez consulter les articles de blog ou les posts sur les réseaux sociaux des hébergeurs. Cela vous permettra « d’évaluer » leur investissement dans la recherche et le développement.
+
+illustration critère de sélection pour choisir son hébergeur web : l'évolutivité de l'hébergeur web
+7. La localisation physique de l’hébergeur
+Hormis le fait que choisir un hébergeur basé sur le même territoire que le votre, facilitera potentiellement vos échanges avec le service client (puisque vous parlerez la même langue). Vous devez vérifier ce critère pour des questions de législation applicable aux données hébergées.
+
+En effet, si vous choisissez un hébergeur dont les serveurs sont basés en France ou en Europe, vos données seront alors soumises à la législation applicable sur ce territoire : la RGPD. Il faudra donc que votre site soit conforme à cette réglementation sous peine de sanctions.
+
+A contrario si votre site est hébergé ailleurs, comme par exemple au États-Unis, c’est une autre réglementation qui s’appliquera à votre site. Ce qui peut éventuellement poser des soucis au niveau de la confidentialité des données collectées, si votre cible est majoritairement française.
+
+8. Les services associés à votre offre
+Enfin, vérifiez les services associés à votre offre proposés par votre hébergeur. Selon vos besoins ils peuvent représenter un bonus très appréciable. Les plus cour

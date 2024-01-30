@@ -1,0 +1,14 @@
+amment rencontrés sont les suivants :
+
+gestion des achats et transferts de noms de domaine
+redirection DNS
+service de messagerie
+sélection du site du serveur (localisation)
+assistance à la gestion ou configuration de votre serveur
+CDN (Content Delivery Network)
+etc…
+Cette liste pourrait être complétée avec d’autres critères de sélections importants pour choisir votre hébergeur web. Mais elle vous donne déjà une bonne base pour prendre une décision en adéquation avec les besoins de votre site.
+
+Comme vous l’aurez remarqué, cela nécessite toutefois des connaissances techniques en matière de développement web, de composants et réseaux informatiques.
+
+C’est pourquoi chez Axis Solutions, nous nous chargeons d’étudier pour vous les offres d’hébergement disponibles. En fonction de votre projet web (site vitrine, e-commerce, application métier, etc…) nous sélectionnons celle qui est la plus adaptée à vos besoins. Nous configurons également votre serveur pour que votre site bénéficie de performances maximum. Et nous proposons aussi des contrats de maintenance pour assurer la pérennité du service ainsi qu’un relai avec le service technique de l’hébergeur.

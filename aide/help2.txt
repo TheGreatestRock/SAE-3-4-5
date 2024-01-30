@@ -1,0 +1,24 @@
+hébergeur :
+
+protection contre les attaques de type DDoS
+protection contre les tentatives de piratage : pare-feu, services de surveillance, etc…
+mise à jour régulière du serveur
+certificat SSL (indispensable pour les sites e-commerce)
+sauvegarde et restauration des données
+etc…
+Attention toutefois, certains de ces services peuvent être payants (en plus de l’offre souscrite) ou considérés comme des options par certains hébergeurs.
+
+illustration critère de sélection pour choisir son hébergeur web : la sécurité des données hébergées
+4. La fiabilité de l’infrastructure
+Si votre site web est constamment inaccessible à cause de la faiblesse de l’infrastructure de votre hébergeur, cela se répercutera sur son référencement par les moteurs de recherche et finalement sur sa performance globale. De plus vous ne communiquerez pas une bonne image à vos potentiels visiteurs.
+
+Il convient donc d’apporter une certaine attention aux garanties de temps de disponibilité (temps durant lequel les serveurs de l’hébergeur et par extension votre site web, sont opérationnels) proposées par l’hébergeur. Nous préconisons de ne pas souscrire à une offre qui indique moins de 99,5% de temps de disponibilité.
+
+De même, il faudra être vigilant sur le temps de rétablissement du service proposé afin que les éventuelles pannes causent le moins de dérangement possible sur le trafic du site.
+
+5. Le support client
+Si vous rencontrez une panne ou que vous avez question technique complexe vous aurez besoin d’être dépannés rapidement. Le support client (ou SAV) de votre hébergeur devra donc être efficace, rapidement joignable et surtout réactif pour vous aider.
+
+La plupart des hébergeurs indiquent (selon les offres) que leur support technique est actif 24h/24 et 7 jours/7. Mais cela ne constitue par un critère de sélection assez fiable. Renseignez vous plutôt du côté des avis clients sur le SAV. Ou encore sur les moyens mis à votre disposition pour les contacter (email, live chat, téléphone, etc…)
+
+Une base de connaissances (FAQ) mise à disposition des 

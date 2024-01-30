@@ -8,7 +8,7 @@ from connexion_db import get_db
 admin_commentaire = Blueprint('admin_commentaire', __name__,
                         template_folder='templates')
 
-
+ 
 @admin_commentaire.route('/admin/article/commentaires', methods=['GET'])
 def admin_article_details():
     mycursor = get_db().cursor()

@@ -5,12 +5,15 @@
             <h3>Recapitulatifs de la commande selectionnée</h3>
             <table class="table">
                 <thead class="thead-dark">
-                    <tr><th>Nom</th><th>Quantite</th><th>Prix</th><th>Prix total</th></tr>
+                    <tr><th>Nom</th><th>couleur</th><th>pointure</th><th>Quantite</th><th>Prix</th><th>Prix total</th></tr>
                 </thead>
                 <tbody>
                         {% for ligne in articles_commande %}
+                        
                             <tr>
                                 <td>{{ ligne.nom }}</td>
+                                <td>{{ ligne.couleur }}</td>
+                                <td>{{ ligne.pointure }}</td>
                                 <td>{{ ligne.quantite }}</td>
                                 <td>{{ ligne.prix }} €</td>
                                 <td>{{ ligne.prix_ligne }} €  </td>

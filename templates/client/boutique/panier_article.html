@@ -38,7 +38,7 @@
                                 <div class="row">
 {# #}                                {% if  article.stock is defined and article.stock != None %}
 {# #}                                    {% if article.stock > 0 %}
-                                        <form  action="/client/panier/add"  method="post" class="col-5">
+                                        <!--<form  action="/client/panier/add"  method="post" class="col-5">
                                             <input type="hidden" name="id_article" value="{{ article.id_article }}">
                                             <div class="input-group">
                                             <button class="btn  btn-success"  id="button-addon1">
@@ -46,7 +46,8 @@
                                             </button>
                                             <input type="number" id="input-{{ article.id_article }}" step="1" min="0" max="{{ article.stock }}" class="form-control" value="1" name="quantite"  aria-describedby="button-addon1">
                                             </div>
-                                        </form>
+                                        </form>-->
+                                        <a href="/client/panier/add?id_article={{ article.id_article }}" class="btn btn-success col-5">Ajouter</a>
 {# #}                                    {% endif %}
 {# #}                                {% endif %}
                                      <div class="col-2 align-content-end">
